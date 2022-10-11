@@ -1,3 +1,6 @@
+ 
+// This file was written by cfiddle.  It's likely that it'll get overwritten in the future, so any edits you make are likely to be lost.
+
 #include <vector>
 #include <iostream>
 #include "cfiddle.hpp"
@@ -7,7 +10,7 @@ extern "C" uint64_t nibble_search(uint8_t query, const std::vector<uint16_t> & t
     uint64_t total = 0;
     uint64_t ary[65536];
     
-    for(auto i: ary)
+    for(int i = 0; i < 65536;i++)
     {
         uint64_t count = 0;
         for(int b = 0; b < 16 - 4; b++) {
@@ -16,7 +19,7 @@ extern "C" uint64_t nibble_search(uint8_t query, const std::vector<uint16_t> & t
                 count+=1;
             }
         }
-        ary[i] = count;
+        ary[(uint16_t)i] = count;
     }
     
     for(auto & i: targets) {
